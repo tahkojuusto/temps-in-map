@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./frontend
+    expose:
+      - ${REACT_PORT}
+    ports:
+      - ${REACT_PORT}:${REACT_PORT}
+    volumes:
+      - ./frontend/src:/usr/app/temps-in-map-frontend/src
+      - ./frontend/public:/usr/app/temps-in-map-frontend/public
+    links:
+      - backend
+    environment:
+      - REACT_PORT=${REACT_PORT}
+      - MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN}
+    command: npm start
+    stdin_open: true
+  backend:
+    build: ./backend
+    expose:
+      - ${NODE_PORT}
+    ports:
+      - ${NODE_PORT}:${NODE_PORT}
+    volumes:
+      - ./backend/src:/usr/app/temps-in-map-backend/src
+    environment:
+      - NODE_PORT=${NODE_PORT}
+    command: npm start
