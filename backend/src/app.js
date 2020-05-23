@@ -5,10 +5,11 @@ const validate = require('jsonschema').validate;
 const logger = require('./logger');
 const temperatureFileSchema = require('./schema');
 
-let temperatures = [];
-
 const app = express();
 app.use(fileUpload());
+
+// In-memory store for temperature contents.
+let temperatures = [];
 
 app.get('/temperatures', (req, res) => {
   logger.info('GET /temperatures invoked.');
