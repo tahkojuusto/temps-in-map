@@ -14,7 +14,7 @@ services:
       - backend
     environment:
       - REACT_PORT=${REACT_PORT}
-      - MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN}
+      - REACT_APP_MAPBOX_ACCESS_TOKEN=${REACT_APP_MAPBOX_ACCESS_TOKEN}
     command: npm start
     stdin_open: true
   backend:

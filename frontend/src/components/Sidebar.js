@@ -14,11 +14,23 @@ import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 const useStyles = makeStyles((theme) => ({
   header: {
     padding: theme.spacing(3),
+    backgroundColor: theme.palette.background.default
+  },
+  fileInput: {
+    display: 'none'
   }
 }));
 
-export const Sidebar = () => {
+export const Sidebar = ({ uploadTemperatures, changeIsCelsius, isCelsius }) => {
   const classes = useStyles();
+
+  const uploadJsonFile = event => {
+    uploadTemperatures(event.target.files[0]);
+  };
+
+  const changeUnit = event => {
+    changeIsCelsius(!isCelsius);
+  }
 
   const sidebar = (
     <Drawer
@@ -30,11 +42,20 @@ export const Sidebar = () => {
       </div>
       <Divider />
       <List>
-        <ListItem button key="Upload file">
-          <ListItemIcon><AttachFileIcon /></ListItemIcon>
-          <ListItemText primary="Upload file" />
-        </ListItem>
-        <ListItem button key="Change unit">
+        <input
+          accept="application/json"
+          className={classes.fileInput}
+          id="file-upload-button"
+          type="file"
+          onChange={uploadJsonFile}
+        />
+        <label htmlFor="file-upload-button">
+          <ListItem button key="Upload file">
+            <ListItemIcon><AttachFileIcon /></ListItemIcon>
+            <ListItemText primary="Upload file" />
+          </ListItem>
+        </label>
+        <ListItem button onClick={changeUnit} key="Change unit">
           <ListItemIcon><AssessmentIcon /></ListItemIcon>
           <ListItemText primary="Change unit" />
         </ListItem>

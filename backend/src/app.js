@@ -1,15 +1,23 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
+const cors = require('cors');
 const validate = require('jsonschema').validate;
 
 const logger = require('./logger');
 const temperatureFileSchema = require('./schema');
 
 const app = express();
+
+// Middlewares
+
+// Set specific URL for CORS. For development, set to allow all URLs.
+app.use(cors());
 app.use(fileUpload());
 
 // In-memory store for temperature contents.
 let temperatures = [];
+
+// Routes
 
 app.get('/temperatures', (req, res) => {
   logger.info('GET /temperatures invoked.');
