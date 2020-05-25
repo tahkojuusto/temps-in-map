@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    "jest",
+    "node"
+  ],
+  "extends": [
+      "eslint:recommended",
+      "plugin:node/recommended",
+      "plugin:jest/recommended"
+  ],
+  "parserOptions": {
+      "ecmaVersion": 2020
+  },
+  "rules": {
+      "node/exports-style": ["error", "module.exports"],
+      "max-len": ["error", { "code": 120 }]
+  }
+}

@@ -13,7 +13,7 @@ services:
     links:
       - backend
     environment:
-      - REACT_PORT=${REACT_PORT}
+      - PORT=${REACT_PORT}
       - REACT_APP_MAPBOX_ACCESS_TOKEN=${REACT_APP_MAPBOX_ACCESS_TOKEN}
     command: npm start
     stdin_open: true

@@ -1,7 +1,9 @@
+/* eslint-disable jest/no-test-callback */
+/* eslint-disable jest/expect-expect */
+// eslint-disable-next-line node/no-unpublished-require
 const request = require('supertest');
 const path = require('path');
 const app = require('../src/app');
-
 
 describe('POST /temperatures/upload', () => {
   let server = null;

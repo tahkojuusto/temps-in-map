@@ -1,7 +1,6 @@
 {
   "env": {
-    "browser": true,
-    "node": true
+    "browser": true
   },
   "parserOptions": {
     "ecmaVersion": 2020,
@@ -11,10 +10,12 @@
     "sourceType": "module"
   },
   "plugins": [
-      "react"
+      "react",
+      "jest"
   ],
   "extends": [
       "eslint:recommended",
-      "plugin:react/recommended"
+      "plugin:react/recommended",
+      "plugin:jest/recommended"
   ]
 }

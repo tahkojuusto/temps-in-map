@@ -27,6 +27,7 @@ export const Sidebar = ({ uploadTemperatures, changeIsCelsius, isCelsius }) => {
 
   const uploadJsonFile = (event) => {
     uploadTemperatures(event.target.files[0]);
+    event.target.value = '';
   };
 
   // eslint-disable-next-line no-unused-vars
@@ -48,6 +49,7 @@ export const Sidebar = ({ uploadTemperatures, changeIsCelsius, isCelsius }) => {
           className={classes.fileInput}
           id="file-upload-button"
           type="file"
+          title="file-upload"
           onChange={uploadJsonFile}
         />
         <label htmlFor="file-upload-button">

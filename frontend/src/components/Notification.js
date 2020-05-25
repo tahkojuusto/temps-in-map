@@ -47,7 +47,7 @@ export const Notification = ({ message, timeout }) => {
 };
 
 Notification.propTypes = {
-  message: PropTypes.string.isRequired,
+  message: PropTypes.object.isRequired,
   timeout: PropTypes.number.isRequired,
 };
 

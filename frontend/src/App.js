@@ -5,6 +5,7 @@ import Map from "./components/Map";
 import Notification from "./components/Notification";
 
 const API_BASE_URL = "http://localhost:8080";
+const NOTIFICATION_TIMEOUT = 5000;
 const theme = createMuiTheme();
 
 function App() {
@@ -78,7 +79,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Notification message={message} timeout={5000} />
+      <Notification message={message} timeout={NOTIFICATION_TIMEOUT} />
       <Map temperatures={temperatures} isCelsius={isCelsius} />
       <Sidebar
         uploadTemperatures={uploadTemperatures}
